@@ -3,7 +3,8 @@
 require('dotenv').load();
 
 // Require keystone
-var keystone = require('keystone');
+var keystone = require('keystone'),
+	handlebars = require('express-handlebars');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -11,20 +12,28 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'YRC Homepage',
-	'brand': 'YRC Homepage',
+	'name': 'YRC-Homepage',
+	'brand': 'YRC-Homepage',
 	
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
-	'view engine': 'jade',
+	'view engine': 'hbs',
+	
+	'custom engine': handlebars.create({
+		layoutsDir: 'templates/views/layouts',
+		partialsDir: 'templates/views/partials',
+		defaultLayout: 'default',
+		helpers: new require('./templates/views/helpers')(),
+		extname: '.hbs'
+	}).engine,
 	
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': 'N$LZ_eQ=``CtCr8;1Cw|PO7<5Rc,-|T-rB])P/RI"~WvqwHm,q+IoRN5O"@CyT|T'
+	'cookie secret': '2&5}"`{~</>EDh|3{%z-^6967G"m3~&tT%3KP&Q-hKBcSW@vV2PZ&ASHQqL`F<Z!'
 
 });
 
