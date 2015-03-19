@@ -1,6 +1,6 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').load();
+// require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone'),
@@ -25,7 +25,7 @@ keystone.init({
 		layoutsDir: 'templates/views/layouts',
 		partialsDir: 'templates/views/partials',
 		defaultLayout: 'default',
-		helpers: new require('./templates/views/helpers')(),
+		// helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
 	
@@ -46,7 +46,7 @@ keystone.import('models');
 // for each request) should be added to ./routes/middleware.js
 
 keystone.set('locals', {
-	_: require('underscore'),
+	// _: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable
@@ -63,7 +63,7 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
+	// 'galleries': 'galleries',
 	'enquiries': 'enquiries',
 	'users': 'users'
 });
