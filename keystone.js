@@ -1,6 +1,6 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-// require('dotenv').load();
+require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone'),
@@ -12,8 +12,8 @@ var keystone = require('keystone'),
 
 keystone.init({
 
-	'name': 'YRC-Homepage',
-	'brand': 'YRC-Homepage',
+	'name': 'YRC-homepage',
+	'brand': 'YRC-homepage',
 	
 	'less': 'public',
 	'static': 'public',
@@ -25,7 +25,7 @@ keystone.init({
 		layoutsDir: 'templates/views/layouts',
 		partialsDir: 'templates/views/partials',
 		defaultLayout: 'default',
-		// helpers: new require('./templates/views/helpers')(),
+		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
 	
@@ -33,7 +33,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': '2&5}"`{~</>EDh|3{%z-^6967G"m3~&tT%3KP&Q-hKBcSW@vV2PZ&ASHQqL`F<Z!'
+	'cookie secret': 'F,"r2-;lP|w"Ze;+]q?F>aMJ$ztqE<7TX(R&=>hiJtCzl+a1BTaL~>F6#*H_CE#k'
 
 });
 
@@ -46,7 +46,7 @@ keystone.import('models');
 // for each request) should be added to ./routes/middleware.js
 
 keystone.set('locals', {
-	// _: require('underscore'),
+	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable
@@ -62,8 +62,6 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	// 'galleries': 'galleries',
 	'enquiries': 'enquiries',
 	'users': 'users'
 });

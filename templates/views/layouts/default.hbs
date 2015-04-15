@@ -1,51 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head lang="en">
-	  <meta charset="UTF-8">
-	  <title>YRC-Homepage</title>
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	  <meta name="format-detection" content="telephone=no">
-	  <meta name="renderer" content="webkit">
-	  <meta http-equiv="Cache-Control" content="no-siteapp">
-	  {{!-- <link rel="alternate icon" type="image/png" href="assets/i/favicon.png"> --}}
-	  <link rel="stylesheet" href="styles/amazeui.min.css">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>YRC-homepage</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		{{!-- <link href="/styles/site.min.css" rel="stylesheet"> --}}
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/uikit.gradient.min.css">
+    <link rel="stylesheet" href="css/site.css">
+		
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
+			- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+		
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+		
 	</head>
-	
 	<body>
-		<header class="am-topbar">
-		  <h1 class="am-topbar-brand">
-		    <a href="#">blog</a>
-		  </h1>
-
-		  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-		  <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
-		    <ul class="am-nav am-nav-pills am-topbar-nav">
-		      <li class="am-active"><a href="#">首页</a></li>
-		      <li><a href="#">项目</a></li>
-		      <li class="am-dropdown" data-am-dropdown="">
-		        <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-		          菜单 <span class="am-icon-caret-down"></span>
-		        </a>
-		        <ul class="am-dropdown-content">
-		          <li class="am-dropdown-header">标题</li>
-		          <li><a href="#">关于我们</a></li>
-		          <li><a href="#">关于字体</a></li>
-		          <li><a href="#">TIPS</a></li>
-		        </ul>
-		      </li>
-		    </ul>
-
-		    <form class="am-topbar-form am-topbar-left am-form-inline am-topbar-right" role="search">
-		      <div class="am-form-group">
-		        <input type="text" class="am-form-field am-input-sm" placeholder="搜索文章">
-		      </div>
-		      <button type="submit" class="am-btn am-btn-default am-btn-sm">搜索</button>
-		    </form>
-
-		  </div>
-		</header>
 		<div id="header">
 			<div class="container">
 				<div role="navigation" class="navbar navbar-default">
@@ -55,9 +34,9 @@
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 							</button>
-							<a href="/" class="navbar-brand">YRC-Homepage</a>
+							<a href="/" class="navbar-brand">YRC-homepage</a>
 						</div>
-						{{!-- <div class="collapse navbar-collapse">
+						<div class="collapse navbar-collapse">
 							<ul class="nav navbar-nav navbar-left">
 									{{# each navLinks}}
 									<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
@@ -72,7 +51,7 @@
 								<li><a href="/keystone/signin">Sign In</a></li>
 								{{/if}}
 							</ul>
-						</div> --}}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -82,7 +61,7 @@
 				Flash messages allow you to display once-off status messages to users, e.g. form
 				validation errors, success messages, etc
 			-->
-			{{!-- {{#if messages}}
+			{{#if messages}}
 			<div id="flash-messages" class="container">
 				{{#if messages.info}}
 				<div class="alert alert-info">
@@ -107,23 +86,24 @@
 			</div>
 			{{/if}}
 			<!-- The content block should contain the body of your template's content-->
-			{{{body}}} --}}
+			{{{body}}}
 		</div>
-		<footer class="my-footer">
-		  <p>sidebar template<br><small>© Copyright XXX. by the AmazeUI Team.</small></p>
-		</footer>
+		<div class="container">
+			<div id="footer">
+				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+			</div>
+		</div>
 		{{!--
 			//- jQuery 1.11.1 is included by default, and required by both Bootstrap
 			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 			//- you can upgrade to 2.1.1 (also bundled) for better performance.
 		--}}
-		<script src="js/jquery.min.js"></script>
-		<script src="js/amazeui.min.js"></script>
+		<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 		{{!--
 			//- Customise which Bootstrap javascript files are served by including
 			//- them specifically here, instead of bootstrap-3.2.0.min.js
 		--}}
-		{{!-- <script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script> --}}
-		{{!-- {{{isAdminEditorJS user}}} --}}
+		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
+		{{{isAdminEditorJS user}}}
 	</body>
 </html>
