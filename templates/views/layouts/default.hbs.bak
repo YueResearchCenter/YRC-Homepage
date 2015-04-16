@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>YRC - Homepage</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		{{!-- <link href="/styles/site.min.css" rel="stylesheet"> --}}
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+		<link rel="stylesheet" href="styles/uikit.min.css">
+		<link rel="stylesheet" href="styles/site.css">
+		
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor
+		- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+		
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+		
+	</head>
+	<body>
+	<nav class="uk-navbar uk-margin-large-bottom">
+				<a class="uk-navbar-brand uk-hidden-small" href="layouts_frontpage.html">Brand</a>
+				<ul class="uk-navbar-nav uk-hidden-small">
+					<li>
+						<a href="layouts_frontpage.html">Frontpage</a>
+					</li>
+					<li>
+						<a href="layouts_portfolio.html">Portfolio</a>
+					</li>
+					<li>
+						<a href="layouts_blog.html">Blog</a>
+					</li>
+					<li>
+						<a href="layouts_documentation.html">Documentation</a>
+					</li>
+					<li class="uk-active">
+						<a href="layouts_contact.html">Contact</a>
+					</li>
+					<li>
+						<a href="layouts_login.html">Login</a>
+					</li>
+				</ul>
+				<a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""></a>
+				<div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+			</nav>
+
+		<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+					</div>
+		{{!-- </div> --}}
+		{{!-- <div id="body">
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+					{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+					{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+					{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+					{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
+			{{{body}}}
+		</div> --}}
+		
+		{{!--
+		//- jQuery 1.11.1 is included by default, and required by both Bootstrap
+		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
+		//- you can upgrade to 2.1.1 (also bundled) for better performance.
+		--}}
+		<script src="js/jquery.min.js"></script>
+		<script src="js/uikit.min.js"></script>
+		{{!--
+		//- Customise which Bootstrap javascript files are served by including
+		//- them specifically here, instead of bootstrap-3.2.0.min.js
+		--}}
+		{{{isAdminEditorJS user}}}
+	</body>
+</html>
