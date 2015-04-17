@@ -13,30 +13,30 @@ exports = module.exports = function(req, res) {
   // locals.validationErrors = {};
   // locals.enquirySubmitted = false;
 
-  views.on('get', function() {
-
+  view.on('get', function(next) {
+    next();
   });
   
   // On POST requests, add the Enquiry item to the database
-  view.on('post', { action: 'contact' }, function(next) {
+  // view.on('post', { action: 'contact' }, function(next) {
     
-    var newEnquiry = new Enquiry.model(),
-      updater = newEnquiry.getUpdateHandler(req);
+  //   var newEnquiry = new Enquiry.model(),
+  //     updater = newEnquiry.getUpdateHandler(req);
     
-    updater.process(req.body, {
-      flashErrors: true,
-      fields: 'name, email, phone, enquiryType, message',
-      errorMessage: 'There was a problem submitting your enquiry:'
-    }, function(err) {
-      if (err) {
-        locals.validationErrors = err.errors;
-      } else {
-        locals.enquirySubmitted = true;
-      }
-      next();
-    });
+  //   updater.process(req.body, {
+  //     flashErrors: true,
+  //     fields: 'name, email, phone, enquiryType, message',
+  //     errorMessage: 'There was a problem submitting your enquiry:'
+  //   }, function(err) {
+  //     if (err) {
+  //       locals.validationErrors = err.errors;
+  //     } else {
+  //       locals.enquirySubmitted = true;
+  //     }
+  //     next();
+  //   });
     
-  });
+  // });
   
   view.render('profile');
   
