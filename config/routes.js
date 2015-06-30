@@ -41,7 +41,9 @@ module.exports.routes = {
   'get /register': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
-  'post /auth/local/:action': 'AuthController.callback'
+  'post /auth/local/:action': 'AuthController.callback',
+
+  'get /user/:user': 'UserController.profile'
 
   /***************************************************************************
   *                                                                          *
